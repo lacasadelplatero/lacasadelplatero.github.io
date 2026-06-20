@@ -1,0 +1,67 @@
+:root {
+  --paper: #f3ede3;
+  --ink: #2d271f;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body.under-construction-page {
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(155, 122, 57, 0.08), transparent 28rem),
+    linear-gradient(180deg, #f5efe5 0%, var(--paper) 46%, #f1e9dc 100%);
+  overflow: hidden;
+}
+
+body.under-construction-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image:
+    linear-gradient(90deg, rgba(90, 70, 45, 0.065) 1px, transparent 1px),
+    linear-gradient(rgba(90, 70, 45, 0.065) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+.under-construction {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.under-construction-banner {
+  width: min(100%, 1220px);
+}
+
+.under-construction-banner img {
+  display: block;
+  width: min(100%, 1180px);
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  filter: none;
+}
+
+@media (max-width: 700px) {
+  .under-construction {
+    padding: 18px;
+  }
+
+  .under-construction-banner img {
+    width: min(100%, 96vw);
+  }
+}
