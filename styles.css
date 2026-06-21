@@ -1,0 +1,65 @@
+:root {
+  --paper: #f3ede3;
+  --ink: #2d271f;
+  --gold: #9b7a39;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(155, 122, 57, 0.08), transparent 28rem),
+    linear-gradient(180deg, #f5efe5 0%, var(--paper) 46%, #f1e9dc 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image:
+    linear-gradient(90deg, rgba(90, 70, 45, 0.065) 1px, transparent 1px),
+    linear-gradient(rgba(90, 70, 45, 0.065) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+.construction-screen {
+  min-height: 100svh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 5vw, 64px);
+}
+
+.construction-banner {
+  display: block;
+  width: min(calc(100vw - 48px), 1560px);
+}
+
+.construction-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+@media (max-width: 560px) {
+  .construction-screen {
+    padding: 24px 18px;
+  }
+
+  .construction-banner {
+    width: min(calc(100vw - 28px), 430px);
+  }
+}
